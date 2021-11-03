@@ -1,0 +1,49 @@
+
+<body>
+
+<mat-toolbar >
+    <button class="outline" mat-icon-button *ngIf="side.mode==='over'" (click)= "side.toggle()">
+    <mat-icon class="btn" *ngIf= "!side.opened">
+      menu
+    </mat-icon>
+    <mat-icon class="btn" *ngIf= "side.opened">
+      close
+    </mat-icon>
+  </button>
+  <span >My Application</span>
+</mat-toolbar>
+
+<mat-sidenav-container>
+  <mat-sidenav #side='matSidenav' >
+      <img src="https://media.istockphoto.com/photos/smiling-man-outdoors-in-the-city-picture-id1179420343?k=20&m=1179420343&s=612x612&w=0&h=G2UGMVSzAXGAQs3pFZpvWlHNRAzwPIWIVtSOxZHsEuc="  class="avatar mat-elevation-z8">
+      <h2 class="name">{{name}}</h2>
+      <p class="designation">Angular Developer</p>
+    <mat-divider></mat-divider>
+    <button mat-button class="menu-button">
+      <mat-icon class="menu-icon">home</mat-icon>
+      <span>Home</span>
+    </button><br>
+    <button mat-button class="menu-button">
+      <mat-icon class="menu-icon">person</mat-icon>
+      <span>Profile</span>
+    </button><br>
+    <button mat-button class="menu-button">
+      <mat-icon class="menu-icon">info</mat-icon>
+      <span>About</span>
+    </button><br>
+    <mat-divider></mat-divider>
+    <button mat-button class="menu-button"  routerLink="/login">
+      <mat-icon class="menu-icon">input icon</mat-icon>
+      <span>Logout</span>
+    </button ><br>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <div class="content ">
+      <div class="content-inside">
+        Main Content
+      </div>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>
+
+</body>

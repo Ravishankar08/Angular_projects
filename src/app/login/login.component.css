@@ -1,0 +1,29 @@
+.card{
+  margin-top: 10px;
+  border: none;
+  padding: 40px;
+  position: absolute;
+  width: 500px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  background: linear-gradient(90deg,rgb(68, 180, 147) 0%,rgb(194, 91, 159) 100%);
+  box-shadow: 3px 7px 44px 0px rgba(0,0,0,0.75);
+  -webkit-box-shadow: 3px 7px 44px 0px rgba(0,0,0,0.75);
+  -moz-box-shadow: 3px 7px 44px 0px rgba(0,0,0,0.75);
+}
+.loginbtn{
+  position:relative;
+  margin-top: 20px;
+  left: 50%;
+  transform: translate(-50%,-50%);
+}
+.form-control:focus {
+  border-color: transparent;
+  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.075) inset, 0px 0px 8px rgba(255, 100, 255, 0.5);
+}
+.form-control.ng-touched.ng-invalid{
+  border: 2px solid red;
+  transition:  .5s;
+}
+

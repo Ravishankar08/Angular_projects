@@ -1,0 +1,82 @@
+mat-toolbar{
+  background-color:rgb(24, 83, 211) ;
+  color: white;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  height: 50px;
+}
+mat-sidenav{
+  margin: 16px;
+  width: 200px;
+  border-right: none;
+  background-color: rgb(68, 155, 236);
+  border-radius: 10px;
+  color:white;
+  padding: 15px;
+  text-align: center;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+.content{
+  height: calc(100vh - 98px);
+  margin: 18px;
+  margin-left: 32px;
+  display: flex;
+  justify-content: center;
+  font-size: 30px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  border-radius: 10px;
+}
+.content-inside{
+  margin-top: 50px;
+}
+
+mat-sidenav-container{
+  height: calc(100vh - 60px);
+
+}
+.menu-button{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  font-size: 1rem;
+  background-color: rgb(68, 155, 236);
+  color: white;
+}
+mat-icon{
+  margin-right: 19px;
+  color: white;
+
+}
+.avatar {
+  margin-top: 16px;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+}
+.name {
+  margin-top: 8px;
+  font-weight: normal;
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+.outline{
+  background-color: rgb(68, 155, 236) ;
+  margin-right: 20px;
+}
+
+.designation {
+  margin-top: 2px;
+  font-size: 0.7rem;
+  color: lightgrey;
+  margin-top:-15px;
+}
+mat-divider{
+  border-top-color:lightgrey;
+}
+.toogle{
+  text-align:center;
+}
+.btn{
+  margin-left:-5px;
+  margin-top: -15px;
+}
