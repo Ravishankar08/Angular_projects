@@ -10,9 +10,9 @@
       close
     </mat-icon>
   </button>
-  <span >My Application</span>
-</mat-toolbar>
+  <h1 class="text-white">My Application</h1>
 
+</mat-toolbar>
 <mat-sidenav-container>
   <mat-sidenav #side='matSidenav' >
       <img src="https://media.istockphoto.com/photos/smiling-man-outdoors-in-the-city-picture-id1179420343?k=20&m=1179420343&s=612x612&w=0&h=G2UGMVSzAXGAQs3pFZpvWlHNRAzwPIWIVtSOxZHsEuc="  class="avatar mat-elevation-z8">
@@ -23,9 +23,9 @@
       <mat-icon class="menu-icon">home</mat-icon>
       <span>Home</span>
     </button><br>
-    <button mat-button class="menu-button">
-      <mat-icon class="menu-icon">person</mat-icon>
-      <span>Profile</span>
+    <button mat-button (click)="clickAddEmployee()" class="menu-button"  data-toggle="modal" data-target="#exampleModal">
+      <mat-icon class="menu-icon" >person</mat-icon>
+      <span>Add Employee</span>
     </button><br>
     <button mat-button class="menu-button">
       <mat-icon class="menu-icon">info</mat-icon>
@@ -39,11 +39,69 @@
   </mat-sidenav>
   <mat-sidenav-content>
     <div class="content ">
-      <div class="content-inside">
-        Main Content
+      <div class="container-fluid d-flex h-100">
+        <table class="table justify-content-center align-self-center table-hover align-text-bottom table-bordered table-stripped table-dark  h4 text-center">
+          <thead >
+            <tr>
+              <th scope="col"> Id</th>
+              <th scope="col">Name</th>
+              <th scope="col">Email</th>
+              <th scope="col">Password</th>
+              <th scope="col">Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let rows of empdata">
+              <td> {{rows.id}} </td>
+              <td>{{rows.name}}</td>
+              <td>{{rows.email}}</td>
+              <td>{{rows.password}}</td>
+              <td>
+                <button (click)="onEdit(rows)"  mat-raised-button class="btn btn-info mt-1"  data-toggle="modal" data-target="#exampleModal">Edit</button>
+                <button (click)="deleteEmp(rows)" mat-raised-button class=" btn btn-danger mx-3 mt-1">Delete</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
       </div>
     </div>
   </mat-sidenav-content>
 </mat-sidenav-container>
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Add new Employee</h5>
+        <button   type="button" class="close btn-outline-dark" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="dashboard">
+          <div class="form-group ">
+            <label for="exampleInputEmail1">Name</label>
+            <input formControlName="name" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Name">
+          </div><br>
+          <div class="form-group mt-1">
+            <label for="exampleInputEmail1">Email address</label>
+            <input formControlName="email" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+          </div> <br>
+          <div class="form-group">
+            <label for="exampleInputPassword1">Password</label>
+            <input formControlName="password" type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+          </div>
+
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button mat-raised-button id="cancel" type="button" class="btn btn-outline-dark btn-secondary " data-dismiss="modal">Close</button>
+        <button *ngIf="showAdd" mat-raised-button type="button" (click)="addbtn()" class="btn btn-outline-dark btn-primary mx-1">Add</button>
+        <button *ngIf="!showAdd" mat-raised-button type="button" (click)="updateEmployee()" class="btn btn-outline-dark btn-primary mx-1">Update</button>
+
+      </div>
+    </div>
+  </div>
+</div>
 
 </body>

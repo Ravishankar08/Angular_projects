@@ -14,7 +14,7 @@ export class LoginComponent implements OnInit {
 
   public loginForm !:FormGroup;
 
-  name:string|undefined;
+  name:any;
    c=0;
   constructor(private formbuilder:FormBuilder ,private http:HttpClient,private router :Router) { }
 
@@ -28,8 +28,11 @@ export class LoginComponent implements OnInit {
     this.http.get<any>('https://616852feba841a001727c6e6.mockapi.io/employee')
     .subscribe((res)=>{
       const user=res.find((a:any)=>{
-        (a.email===this.loginForm.value.email)? this.name=a.name: this.c=1;
-        console.log(this.name);
+        if(a.email===this.loginForm.value.email && a.password === this.loginForm.value.password){
+          this.name=a.name;
+          this.c=1;
+          console.log(this.name)
+        }
         return a.email===this.loginForm.value.email && a.password === this.loginForm.value.password
       });
       if(user){
@@ -38,9 +41,9 @@ export class LoginComponent implements OnInit {
         this.router.navigate(['dashboard']);
       }
       else{
-        alert("user not found");
-        this,this.loginForm.reset();
-        if(this.c=1){
+        alert("check email and password");
+        this.loginForm.reset();
+        if(this.c=0){
           console.log("wrong user");
         }
       }
